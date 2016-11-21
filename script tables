@@ -1,0 +1,27 @@
+CREATE TABLE Usuarios(
+	usuario TEXT PRIMARY KEY,
+	password TEXT,
+	sid INTEGER,
+	FOREIGN KEY (sid) REFERENCES Server(sid)
+)
+
+CREATE TABLE Contactos(
+	cid INTEGER PRIMARY KEY,
+	usuario TEXT,
+	sid INTEGER,
+	usuarioid TEXT,
+	FOREIGN KEY (usuariood) REFERENCES Usuarios(usuario)	
+);
+
+CREATE TABLE Correos(
+	mid INTEGER PRIMARY KEY,
+	sender TEXT,
+	subject TEXT,
+	body TEXT, 
+	usuario TEXT,
+	FOREIGN KEY (usuario) REFERENCES Usuarios(usuario)
+);
+
+CREATE TABLE Server(
+	sid INTEGER PRIMARY KEY
+)
